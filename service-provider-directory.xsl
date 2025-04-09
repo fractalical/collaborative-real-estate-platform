@@ -106,45 +106,36 @@
             <body>
                 <div class="container">
                     <h1>Service Provider Directory</h1>
-                    <div class="filters">
-                        <h3>Filter by Service Type</h3>
-                        <select id="serviceTypeFilter">
-                            <option value="">All Services</option>
-                            <xsl:for-each select="//re:serviceProvider/re:serviceType[not(. = preceding::re:serviceType)]">
-                                <option value="{.}"><xsl:value-of select="."/></option>
-                            </xsl:for-each>
-                        </select>
-                    </div>
-                    <xsl:apply-templates select="//re:serviceProvider"/>
+                    <xsl:apply-templates select="//re:realEstatePlatform/serviceProviders/serviceProvider"/>
                 </div>
             </body>
         </html>
     </xsl:template>
 
-    <xsl:template match="re:serviceProvider">
+    <xsl:template match="serviceProvider">
         <div class="provider-card">
-            <h2><xsl:value-of select="re:n"/></h2>
-            <p class="service-type"><xsl:value-of select="re:serviceType"/></p>
-            <p><xsl:value-of select="re:description"/></p>
+            <h2><xsl:value-of select="n"/></h2>
+            <p class="service-type"><xsl:value-of select="serviceType"/></p>
+            <p><xsl:value-of select="description"/></p>
 
             <div class="contact-info">
                 <h3>Contact Information</h3>
                 <p>
-                    Email: <xsl:value-of select="re:contactInfo/re:email"/><br/>
-                    Phone: <xsl:value-of select="re:contactInfo/re:phone"/><br/>
-                    Preferred Contact: <xsl:value-of select="re:contactInfo/re:preferredContactMethod"/>
+                    Email: <xsl:value-of select="contactInfo/email"/><br/>
+                    Phone: <xsl:value-of select="contactInfo/phone"/><br/>
+                    Preferred Contact: <xsl:value-of select="contactInfo/preferredContactMethod"/>
                 </p>
             </div>
 
             <div class="ratings">
                 <h3>Ratings</h3>
                 <xsl:choose>
-                    <xsl:when test="re:ratings/re:rating">
-                        <xsl:for-each select="re:ratings/re:rating">
+                    <xsl:when test="ratings/rating">
+                        <xsl:for-each select="ratings/rating">
                             <div class="rating">
-                                <span class="rating-score">★ <xsl:value-of select="re:score"/>/5</span>
-                                <p><xsl:value-of select="re:comment"/></p>
-                                <small>Date: <xsl:value-of select="re:date"/></small>
+                                <span class="rating-score">★ <xsl:value-of select="score"/>/5</span>
+                                <p><xsl:value-of select="comment"/></p>
+                                <small>Date: <xsl:value-of select="date"/></small>
                             </div>
                         </xsl:for-each>
                     </xsl:when>
@@ -157,14 +148,14 @@
             <div class="certifications">
                 <h3>Certifications</h3>
                 <xsl:choose>
-                    <xsl:when test="re:certifications/re:certification">
-                        <xsl:for-each select="re:certifications/re:certification">
+                    <xsl:when test="certifications/certification">
+                        <xsl:for-each select="certifications/certification">
                             <div class="certification">
-                                <strong><xsl:value-of select="re:name"/></strong><br/>
-                                Issued by: <xsl:value-of select="re:issuingBody"/><br/>
-                                Issue Date: <xsl:value-of select="re:issueDate"/>
-                                <xsl:if test="re:expiryDate">
-                                    <br/>Expires: <xsl:value-of select="re:expiryDate"/>
+                                <strong><xsl:value-of select="name"/></strong><br/>
+                                Issued by: <xsl:value-of select="issuingBody"/><br/>
+                                Issue Date: <xsl:value-of select="issueDate"/>
+                                <xsl:if test="expiryDate">
+                                    <br/>Expires: <xsl:value-of select="expiryDate"/>
                                 </xsl:if>
                             </div>
                         </xsl:for-each>
@@ -178,13 +169,13 @@
             <div class="services">
                 <h3>Available Services</h3>
                 <div class="service-list">
-                    <xsl:for-each select="re:services/re:service">
+                    <xsl:for-each select="services/service">
                         <div class="service-item">
-                            <h4><xsl:value-of select="re:n"/></h4>
-                            <p><xsl:value-of select="re:description"/></p>
-                            <p class="price">Price: $<xsl:value-of select="format-number(re:price, '#,##0')"/></p>
-                            <xsl:if test="re:duration">
-                                <p>Duration: <xsl:value-of select="re:duration"/></p>
+                            <h4><xsl:value-of select="n"/></h4>
+                            <p><xsl:value-of select="description"/></p>
+                            <p class="price">Price: $<xsl:value-of select="format-number(price, '#,##0')"/></p>
+                            <xsl:if test="duration">
+                                <p>Duration: <xsl:value-of select="duration"/></p>
                             </xsl:if>
                         </div>
                     </xsl:for-each>
