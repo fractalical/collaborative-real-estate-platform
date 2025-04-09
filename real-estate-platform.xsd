@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:re="http://www.realestate-platform.com/schema"
+           targetNamespace="http://www.realestate-platform.com/schema"
+           elementFormDefault="qualified">
+
+    <!-- Common Types -->
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="street" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="state" type="xs:string"/>
+            <xs:element name="postalCode" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+            <xs:element name="coordinates" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="latitude" type="xs:decimal"/>
+                    <xs:attribute name="longitude" type="xs:decimal"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContactInfoType">
+        <xs:sequence>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="preferredContactMethod" type="xs:string"/>
+            <xs:element name="availabilityHours" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- User Types -->
+    <xs:complexType name="UserType" abstract="true">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:ID"/>
+            <xs:element name="username" type="xs:string"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="contactInfo" type="re:ContactInfoType"/>
+            <xs:element name="registrationDate" type="xs:date"/>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="ratings" type="re:RatingsType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RatingsType">
+        <xs:sequence>
+            <xs:element name="rating" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="score" type="xs:decimal"/>
+                        <xs:element name="comment" type="xs:string" minOccurs="0"/>
+                        <xs:element name="date" type="xs:date"/>
+                    </xs:sequence>
+                    <xs:attribute name="ratedBy" type="xs:IDREF"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="averageRating" type="xs:decimal"/>
+    </xs:complexType>
+
+    <!-- Property Related Types -->
+    <xs:complexType name="PropertyType">
+        <xs:sequence>
+            <xs:element name="propertyId" type="xs:ID"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="address" type="re:AddressType"/>
+            <xs:element name="propertyDetails" type="re:PropertyDetailsType"/>
+            <xs:element name="pricing" type="re:PricingType"/>
+            <xs:element name="media" type="re:MediaType" minOccurs="0"/>
+            <xs:element name="availability" type="re:AvailabilityType"/>
+            <xs:element name="features" type="re:FeaturesType"/>
+            <xs:element name="history" type="re:PropertyHistoryType"/>
+        </xs:sequence>
+        <xs:attribute name="listingType" type="re:ListingTypeEnum"/>
+        <xs:attribute name="status" type="re:PropertyStatusEnum"/>
+    </xs:complexType>
+
+    <xs:complexType name="PropertyDetailsType">
+        <xs:sequence>
+            <xs:element name="propertyType" type="xs:string"/>
+            <xs:element name="yearBuilt" type="xs:gYear"/>
+            <xs:element name="totalArea" type="xs:decimal"/>
+            <xs:element name="livingArea" type="xs:decimal"/>
+            <xs:element name="bedrooms" type="xs:integer"/>
+            <xs:element name="bathrooms" type="xs:decimal"/>
+            <xs:element name="parking" type="xs:integer" minOccurs="0"/>
+            <xs:element name="lotSize" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="floors" type="xs:integer"/>
+            <xs:element name="energyRating" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PricingType">
+        <xs:sequence>
+            <xs:element name="listPrice" type="xs:decimal"/>
+            <xs:element name="previousPrice" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="monthlyRent" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="deposit" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="additionalCosts" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="description" type="xs:string"/>
+                        <xs:element name="amount" type="xs:decimal"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="currency" type="xs:string" default="USD"/>
+    </xs:complexType>
+
+    <!-- Agency and Agent Types -->
+    <xs:complexType name="AgencyType">
+        <xs:sequence>
+            <xs:element name="agencyId" type="xs:ID"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="address" type="re:AddressType"/>
+            <xs:element name="contactInfo" type="re:ContactInfoType"/>
+            <xs:element name="agents" type="re:AgentsListType"/>
+            <xs:element name="licenses" type="re:LicensesType"/>
+            <xs:element name="ratings" type="re:RatingsType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AgentType">
+        <xs:complexContent>
+            <xs:extension base="re:UserType">
+                <xs:sequence>
+                    <xs:element name="agencyId" type="xs:IDREF"/>
+                    <xs:element name="specializations" type="xs:string" maxOccurs="unbounded"/>
+                    <xs:element name="licenses" type="re:LicensesType"/>
+                    <xs:element name="activeListings" type="xs:IDREFS" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Service Provider Types -->
+    <xs:complexType name="ServiceProviderType">
+        <xs:sequence>
+            <xs:element name="providerId" type="xs:ID"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="serviceType" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="contactInfo" type="re:ContactInfoType"/>
+            <xs:element name="services" type="re:ServicesListType"/>
+            <xs:element name="availability" type="re:AvailabilityType"/>
+            <xs:element name="ratings" type="re:RatingsType"/>
+            <xs:element name="certifications" type="re:CertificationsType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Transaction Types -->
+    <xs:complexType name="TransactionType">
+        <xs:sequence>
+            <xs:element name="transactionId" type="xs:ID"/>
+            <xs:element name="propertyId" type="xs:IDREF"/>
+            <xs:element name="transactionType" type="re:TransactionTypeEnum"/>
+            <xs:element name="status" type="re:TransactionStatusEnum"/>
+            <xs:element name="parties" type="re:TransactionPartiesType"/>
+            <xs:element name="financials" type="re:FinancialsType"/>
+            <xs:element name="documents" type="re:DocumentsType"/>
+            <xs:element name="timeline" type="re:TimelineType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Enumerations -->
+    <xs:simpleType name="ListingTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SALE"/>
+            <xs:enumeration value="RENT"/>
+            <xs:enumeration value="LEASE"/>
+            <xs:enumeration value="AUCTION"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PropertyStatusEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AVAILABLE"/>
+            <xs:enumeration value="UNDER_CONTRACT"/>
+            <xs:enumeration value="SOLD"/>
+            <xs:enumeration value="RENTED"/>
+            <xs:enumeration value="OFF_MARKET"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TransactionTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PURCHASE"/>
+            <xs:enumeration value="SALE"/>
+            <xs:enumeration value="RENTAL"/>
+            <xs:enumeration value="LEASE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TransactionStatusEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="INITIATED"/>
+            <xs:enumeration value="PENDING"/>
+            <xs:enumeration value="IN_PROGRESS"/>
+            <xs:enumeration value="COMPLETED"/>
+            <xs:enumeration value="CANCELLED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Additional Complex Types -->
+    <xs:complexType name="MediaType">
+        <xs:sequence>
+            <xs:element name="images" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="image" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="url" type="xs:anyURI"/>
+                                    <xs:element name="caption" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="type" type="xs:string"/>
+                                </xs:sequence>
+                                <xs:attribute name="isPrimary" type="xs:boolean"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="videos" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="video" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="url" type="xs:anyURI"/>
+                                    <xs:element name="title" type="xs:string"/>
+                                    <xs:element name="duration" type="xs:duration" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="virtualTours" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tour" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="url" type="xs:anyURI"/>
+                                    <xs:element name="provider" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AvailabilityType">
+        <xs:sequence>
+            <xs:element name="availableFrom" type="xs:date"/>
+            <xs:element name="availableTo" type="xs:date" minOccurs="0"/>
+            <xs:element name="showingSchedule" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="timeSlot" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="startTime" type="xs:dateTime"/>
+                                    <xs:element name="endTime" type="xs:dateTime"/>
+                                    <xs:element name="status" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FeaturesType">
+        <xs:sequence>
+            <xs:element name="amenities">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="amenity" type="xs:string" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="appliances" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="appliance" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="name" type="xs:string"/>
+                                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="condition" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="utilities" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="utility" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="type" type="xs:string"/>
+                                    <xs:element name="provider" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PropertyHistoryType">
+        <xs:sequence>
+            <xs:element name="event" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="date" type="xs:date"/>
+                        <xs:element name="type" type="xs:string"/>
+                        <xs:element name="description" type="xs:string"/>
+                        <xs:element name="price" type="xs:decimal" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AgentsListType">
+        <xs:sequence>
+            <xs:element name="agent" type="re:AgentType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LicensesType">
+        <xs:sequence>
+            <xs:element name="license" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="number" type="xs:string"/>
+                        <xs:element name="type" type="xs:string"/>
+                        <xs:element name="issuingAuthority" type="xs:string"/>
+                        <xs:element name="issueDate" type="xs:date"/>
+                        <xs:element name="expiryDate" type="xs:date"/>
+                        <xs:element name="status" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ServicesListType">
+        <xs:sequence>
+            <xs:element name="service" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                        <xs:element name="description" type="xs:string"/>
+                        <xs:element name="price" type="xs:decimal"/>
+                        <xs:element name="duration" type="xs:duration" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CertificationsType">
+        <xs:sequence>
+            <xs:element name="certification" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                        <xs:element name="issuingBody" type="xs:string"/>
+                        <xs:element name="issueDate" type="xs:date"/>
+                        <xs:element name="expiryDate" type="xs:date" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TransactionPartiesType">
+        <xs:sequence>
+            <xs:element name="buyer" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="seller" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="tenant" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="lessor" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="agent" type="xs:IDREF"/>
+            <xs:element name="agency" type="xs:IDREF"/>
+            <xs:element name="serviceProviders" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="provider" type="xs:IDREF" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FinancialsType">
+        <xs:sequence>
+            <xs:element name="price" type="xs:decimal"/>
+            <xs:element name="currency" type="xs:string"/>
+            <xs:element name="paymentMethod" type="xs:string"/>
+            <xs:element name="financingDetails" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="lender" type="xs:string" minOccurs="0"/>
+                        <xs:element name="loanAmount" type="xs:decimal" minOccurs="0"/>
+                        <xs:element name="interestRate" type="xs:decimal" minOccurs="0"/>
+                        <xs:element name="term" type="xs:integer" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="fees">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fee" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="type" type="xs:string"/>
+                                    <xs:element name="amount" type="xs:decimal"/>
+                                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DocumentsType">
+        <xs:sequence>
+            <xs:element name="document" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="type" type="xs:string"/>
+                        <xs:element name="title" type="xs:string"/>
+                        <xs:element name="url" type="xs:anyURI"/>
+                        <xs:element name="uploadDate" type="xs:dateTime"/>
+                        <xs:element name="status" type="xs:string"/>
+                        <xs:element name="signedBy" type="xs:IDREFS" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TimelineType">
+        <xs:sequence>
+            <xs:element name="event" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="date" type="xs:dateTime"/>
+                        <xs:element name="type" type="xs:string"/>
+                        <xs:element name="description" type="xs:string"/>
+                        <xs:element name="status" type="xs:string"/>
+                        <xs:element name="responsibleParty" type="xs:IDREF" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root Element -->
+    <xs:element name="realEstatePlatform">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="properties">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="property" type="re:PropertyType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="agencies">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="agency" type="re:AgencyType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="serviceProviders">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="serviceProvider" type="re:ServiceProviderType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="transactions">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="transaction" type="re:TransactionType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:string"/>
+            <xs:attribute name="lastUpdated" type="xs:dateTime"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema> 

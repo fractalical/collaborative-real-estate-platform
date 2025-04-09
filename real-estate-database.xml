@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<re:realEstatePlatform xmlns:re="http://www.realestate-platform.com/schema"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://www.realestate-platform.com/schema real-estate-platform.xsd"
+                      version="1.0"
+                      lastUpdated="2024-03-20T10:00:00">
+
+    <properties>
+        <property listingType="SALE" status="AVAILABLE">
+            <propertyId>PROP001</propertyId>
+            <title>Luxury Waterfront Villa</title>
+            <description>Stunning 4-bedroom villa with panoramic ocean views</description>
+            <address>
+                <street>123 Oceanview Drive</street>
+                <city>Miami Beach</city>
+                <state>Florida</state>
+                <postalCode>33139</postalCode>
+                <country>USA</country>
+                <coordinates latitude="25.7617" longitude="-80.1918"/>
+            </address>
+            <propertyDetails>
+                <propertyType>Villa</propertyType>
+                <yearBuilt>2020</yearBuilt>
+                <totalArea>450.5</totalArea>
+                <livingArea>380.2</livingArea>
+                <bedrooms>4</bedrooms>
+                <bathrooms>3.5</bathrooms>
+                <parking>2</parking>
+                <lotSize>600.0</lotSize>
+                <floors>2</floors>
+                <energyRating>A</energyRating>
+            </propertyDetails>
+            <pricing>
+                <listPrice>2500000.00</listPrice>
+                <previousPrice>2750000.00</previousPrice>
+                <additionalCosts>
+                    <description>Property Tax</description>
+                    <amount>25000.00</amount>
+                </additionalCosts>
+                <additionalCosts>
+                    <description>HOA Fees</description>
+                    <amount>500.00</amount>
+                </additionalCosts>
+            </pricing>
+            <media>
+                <images>
+                    <image isPrimary="true">
+                        <url>https://example.com/images/prop001/main.jpg</url>
+                        <caption>Front View</caption>
+                        <type>exterior</type>
+                    </image>
+                    <image isPrimary="false">
+                        <url>https://example.com/images/prop001/kitchen.jpg</url>
+                        <caption>Modern Kitchen</caption>
+                        <type>interior</type>
+                    </image>
+                </images>
+                <virtualTours>
+                    <tour>
+                        <url>https://example.com/tours/prop001</url>
+                        <provider>Matterport</provider>
+                    </tour>
+                </virtualTours>
+            </media>
+            <availability>
+                <availableFrom>2024-04-01</availableFrom>
+                <showingSchedule>
+                    <timeSlot>
+                        <startTime>2024-03-22T14:00:00</startTime>
+                        <endTime>2024-03-22T15:00:00</endTime>
+                        <status>AVAILABLE</status>
+                    </timeSlot>
+                </showingSchedule>
+            </availability>
+            <features>
+                <amenities>
+                    <amenity>Swimming Pool</amenity>
+                    <amenity>Ocean View</amenity>
+                    <amenity>Smart Home System</amenity>
+                </amenities>
+                <appliances>
+                    <appliance>
+                        <n>Smart Refrigerator</n>
+                        <description>Samsung Family Hub</description>
+                        <condition>New</condition>
+                    </appliance>
+                </appliances>
+                <utilities>
+                    <utility>
+                        <type>Solar Panels</type>
+                        <provider>Tesla</provider>
+                    </utility>
+                </utilities>
+            </features>
+            <history>
+                <event>
+                    <date>2024-01-15</date>
+                    <type>LISTED</type>
+                    <description>Property listed for sale</description>
+                    <price>2750000.00</price>
+                </event>
+                <event>
+                    <date>2024-03-01</date>
+                    <type>PRICE_REDUCTION</type>
+                    <description>Price reduced</description>
+                    <price>2500000.00</price>
+                </event>
+            </history>
+        </property>
+
+        <property listingType="RENT" status="AVAILABLE">
+            <propertyId>PROP002</propertyId>
+            <title>Modern Downtown Apartment</title>
+            <description>Luxurious 2-bedroom apartment in the heart of downtown</description>
+            <address>
+                <street>456 City Center Ave</street>
+                <city>Miami</city>
+                <state>Florida</state>
+                <postalCode>33130</postalCode>
+                <country>USA</country>
+                <coordinates latitude="25.7616" longitude="-80.1917"/>
+            </address>
+            <propertyDetails>
+                <propertyType>Apartment</propertyType>
+                <yearBuilt>2022</yearBuilt>
+                <totalArea>120.0</totalArea>
+                <livingArea>110.0</livingArea>
+                <bedrooms>2</bedrooms>
+                <bathrooms>2.0</bathrooms>
+                <parking>1</parking>
+                <floors>1</floors>
+                <energyRating>A+</energyRating>
+            </propertyDetails>
+            <pricing>
+                <listPrice>3500.00</listPrice>
+                <monthlyRent>3500.00</monthlyRent>
+                <deposit>7000.00</deposit>
+            </pricing>
+            <availability>
+                <availableFrom>2024-04-01</availableFrom>
+            </availability>
+            <features>
+                <amenities>
+                    <amenity>Gym</amenity>
+                    <amenity>Pool</amenity>
+                    <amenity>Concierge</amenity>
+                </amenities>
+            </features>
+            <history>
+                <event>
+                    <date>2024-03-15</date>
+                    <type>LISTED</type>
+                    <description>Property listed for rent</description>
+                    <price>3500.00</price>
+                </event>
+            </history>
+        </property>
+    </properties>
+
+    <agencies>
+        <agency>
+            <agencyId>AG001</agencyId>
+            <n>Luxury Real Estate Group</n>
+            <description>Premier luxury real estate agency in Miami</description>
+            <address>
+                <street>789 Business Ave</street>
+                <city>Miami</city>
+                <state>Florida</state>
+                <postalCode>33131</postalCode>
+                <country>USA</country>
+            </address>
+            <contactInfo>
+                <email>contact@luxuryregroup.com</email>
+                <phone>305-555-0123</phone>
+                <preferredContactMethod>email</preferredContactMethod>
+            </contactInfo>
+            <agents>
+                <agent>
+                    <userId>AGT001</userId>
+                    <username>jsmith</username>
+                    <firstName>John</firstName>
+                    <lastName>Smith</lastName>
+                    <contactInfo>
+                        <email>john.smith@luxuryregroup.com</email>
+                        <phone>305-555-0124</phone>
+                        <preferredContactMethod>phone</preferredContactMethod>
+                    </contactInfo>
+                    <registrationDate>2020-01-15</registrationDate>
+                    <status>ACTIVE</status>
+                    <agencyId>AG001</agencyId>
+                    <specializations>Luxury Properties</specializations>
+                    <specializations>Waterfront Homes</specializations>
+                    <licenses>
+                        <license>
+                            <number>FL123456</number>
+                            <type>Real Estate Broker</type>
+                            <issuingAuthority>Florida Real Estate Commission</issuingAuthority>
+                            <issueDate>2020-01-01</issueDate>
+                            <expiryDate>2024-12-31</expiryDate>
+                            <status>ACTIVE</status>
+                        </license>
+                    </licenses>
+                    <activeListings>PROP001</activeListings>
+                </agent>
+            </agents>
+            <licenses>
+                <license>
+                    <number>FLAG789012</number>
+                    <type>Business License</type>
+                    <issuingAuthority>Florida Department of Business</issuingAuthority>
+                    <issueDate>2020-01-01</issueDate>
+                    <expiryDate>2024-12-31</expiryDate>
+                    <status>ACTIVE</status>
+                </license>
+            </licenses>
+            <ratings>
+                <rating ratedBy="USER001">
+                    <score>4.8</score>
+                    <comment>Excellent service and professional staff</comment>
+                    <date>2024-02-15</date>
+                </rating>
+            </ratings>
+        </agency>
+    </agencies>
+
+    <serviceProviders>
+        <serviceProvider>
+            <providerId>SP001</providerId>
+            <n>Elite Home Inspections</n>
+            <serviceType>Home Inspection</serviceType>
+            <description>Professional home inspection services with detailed reports and thermal imaging</description>
+            <contactInfo>
+                <email>info@eliteinspect.com</email>
+                <phone>555-0123</phone>
+                <preferredContactMethod>email</preferredContactMethod>
+            </contactInfo>
+            <services>
+                <service>
+                    <n>Standard Home Inspection</n>
+                    <description>Comprehensive inspection of all major home systems and structures</description>
+                    <price>450.00</price>
+                    <duration>PT4H</duration>
+                </service>
+                <service>
+                    <n>Thermal Imaging Inspection</n>
+                    <description>Advanced inspection using thermal imaging technology</description>
+                    <price>650.00</price>
+                    <duration>PT5H</duration>
+                </service>
+            </services>
+            <availability>
+                <availableFrom>2024-03-21</availableFrom>
+            </availability>
+            <ratings>
+                <rating ratedBy="AGT001">
+                    <score>4.8</score>
+                    <comment>Very thorough inspection, great communication</comment>
+                    <date>2024-02-15</date>
+                </rating>
+                <rating ratedBy="AGT002">
+                    <score>4.9</score>
+                    <comment>Excellent attention to detail</comment>
+                    <date>2024-03-01</date>
+                </rating>
+            </ratings>
+            <certifications>
+                <certification>
+                    <name>Certified Master Inspector</name>
+                    <issuingBody>InterNACHI</issuingBody>
+                    <issueDate>2022-01-15</issueDate>
+                    <expiryDate>2025-01-15</expiryDate>
+                </certification>
+            </certifications>
+        </serviceProvider>
+
+        <serviceProvider>
+            <providerId>SP002</providerId>
+            <n>Accurate Appraisals LLC</n>
+            <serviceType>Property Appraisal</serviceType>
+            <description>Licensed property appraisal services for residential and commercial properties</description>
+            <contactInfo>
+                <email>info@accurateappraisals.com</email>
+                <phone>555-0124</phone>
+                <preferredContactMethod>phone</preferredContactMethod>
+            </contactInfo>
+            <services>
+                <service>
+                    <n>Residential Appraisal</n>
+                    <description>Complete residential property valuation</description>
+                    <price>400.00</price>
+                    <duration>PT3H</duration>
+                </service>
+                <service>
+                    <n>Commercial Appraisal</n>
+                    <description>Detailed commercial property valuation</description>
+                    <price>800.00</price>
+                    <duration>PT6H</duration>
+                </service>
+            </services>
+            <availability>
+                <availableFrom>2024-03-22</availableFrom>
+            </availability>
+            <ratings>
+                <rating ratedBy="AGT003">
+                    <score>4.7</score>
+                    <comment>Fast and accurate appraisals</comment>
+                    <date>2024-03-10</date>
+                </rating>
+            </ratings>
+            <certifications>
+                <certification>
+                    <name>Certified Residential Appraiser</name>
+                    <issuingBody>State Board of Appraisers</issuingBody>
+                    <issueDate>2021-06-01</issueDate>
+                    <expiryDate>2024-06-01</expiryDate>
+                </certification>
+            </certifications>
+        </serviceProvider>
+    </serviceProviders>
+
+    <transactions>
+        <transaction>
+            <transactionId>TR001</transactionId>
+            <propertyId>PROP001</propertyId>
+            <transactionType>PURCHASE</transactionType>
+            <status>IN_PROGRESS</status>
+            <parties>
+                <buyer>USER001</buyer>
+                <seller>USER002</seller>
+                <agent>AGT001</agent>
+                <agency>AG001</agency>
+                <serviceProviders>
+                    <provider>SP001</provider>
+                    <provider>SP002</provider>
+                </serviceProviders>
+            </parties>
+            <financials>
+                <price>550000.00</price>
+                <paymentMethod>MORTGAGE</paymentMethod>
+                <financingDetails>
+                    <lender>First National Bank</lender>
+                    <loanAmount>440000.00</loanAmount>
+                    <interestRate>6.5</interestRate>
+                    <term>360</term>
+                </financingDetails>
+                <fees>
+                    <fee>
+                        <type>Inspection</type>
+                        <amount>450.00</amount>
+                        <description>Standard home inspection</description>
+                    </fee>
+                    <fee>
+                        <type>Appraisal</type>
+                        <amount>400.00</amount>
+                        <description>Residential appraisal fee</description>
+                    </fee>
+                </fees>
+            </financials>
+            <documents>
+                <document>
+                    <type>Purchase Agreement</type>
+                    <title>Residential Purchase Agreement</title>
+                    <url>https://example.com/docs/TR001/purchase-agreement.pdf</url>
+                    <uploadDate>2024-03-18T14:30:00</uploadDate>
+                    <status>SIGNED</status>
+                    <signedBy>USER001 USER002</signedBy>
+                </document>
+                <document>
+                    <type>Inspection Report</type>
+                    <title>Home Inspection Report</title>
+                    <url>https://example.com/docs/TR001/inspection-report.pdf</url>
+                    <uploadDate>2024-03-19T16:00:00</uploadDate>
+                    <status>COMPLETED</status>
+                </document>
+            </documents>
+            <timeline>
+                <event>
+                    <date>2024-03-18T10:00:00</date>
+                    <type>OFFER_SUBMITTED</type>
+                    <description>Initial offer submitted by buyer</description>
+                    <status>COMPLETED</status>
+                    <responsibleParty>USER001</responsibleParty>
+                </event>
+                <event>
+                    <date>2024-03-18T14:30:00</date>
+                    <type>OFFER_ACCEPTED</type>
+                    <description>Offer accepted by seller</description>
+                    <status>COMPLETED</status>
+                    <responsibleParty>USER002</responsibleParty>
+                </event>
+                <event>
+                    <date>2024-03-19T09:00:00</date>
+                    <type>INSPECTION_SCHEDULED</type>
+                    <description>Home inspection scheduled</description>
+                    <status>COMPLETED</status>
+                    <responsibleParty>SP001</responsibleParty>
+                </event>
+                <event>
+                    <date>2024-03-19T16:00:00</date>
+                    <type>INSPECTION_COMPLETED</type>
+                    <description>Home inspection completed and report uploaded</description>
+                    <status>COMPLETED</status>
+                    <responsibleParty>SP001</responsibleParty>
+                </event>
+            </timeline>
+        </transaction>
+    </transactions>
+
+</re:realEstatePlatform> 
