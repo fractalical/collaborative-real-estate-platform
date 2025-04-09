@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This XSLT generates a comprehensive property analytics report -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:re="http://www.realestate-platform.com/schema">
@@ -37,6 +38,7 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- Main template creates the analytics dashboard with various property metrics -->
     <xsl:template match="/">
         <html>
             <head>

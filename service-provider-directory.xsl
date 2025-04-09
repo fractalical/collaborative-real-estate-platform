@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This XSLT generates a directory of real estate service providers -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:re="http://www.realestate-platform.com/schema">
 
     <xsl:output method="html" indent="yes"/>
 
+    <!-- Main template creates the service provider directory layout -->
     <xsl:template match="/">
         <html>
             <head>
@@ -112,6 +114,7 @@
         </html>
     </xsl:template>
 
+    <!-- Template for displaying individual service provider information -->
     <xsl:template match="serviceProvider">
         <div class="provider-card">
             <h2><xsl:value-of select="n"/></h2>

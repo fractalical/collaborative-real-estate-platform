@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This XSLT creates detailed transaction reports for real estate deals -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:re="http://www.realestate-platform.com/schema">
 
     <xsl:output method="html" indent="yes"/>
 
+    <!-- Main template creates the transaction summary report layout -->
     <xsl:template match="/">
         <html>
             <head>
@@ -64,6 +66,7 @@
         </html>
     </xsl:template>
 
+    <!-- Template for displaying individual transaction details -->
     <xsl:template match="transaction">
         <div class="transaction">
             <h2>Transaction #<xsl:value-of select="transactionId"/></h2>
@@ -150,6 +153,7 @@
         </div>
     </xsl:template>
 
+    <!-- Template for displaying property information in transactions -->
     <xsl:template match="property">
         <div>
             <p>

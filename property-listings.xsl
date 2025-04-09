@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This XSLT creates a property listings page with detailed property information -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:re="http://www.realestate-platform.com/schema">
 
     <xsl:output method="html" indent="yes"/>
 
+    <!-- Main template sets up the listings page layout -->
     <xsl:template match="/">
         <html xmlns:re="http://www.realestate-platform.com/schema">
             <head>
@@ -54,6 +56,7 @@
         </html>
     </xsl:template>
 
+    <!-- Template for displaying individual property details -->
     <xsl:template match="property">
         <div class="property">
             <h2><xsl:value-of select="title"/></h2>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This XSLT transforms real estate data into an agent dashboard HTML view -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:re="http://www.realestate-platform.com/schema">
 
     <xsl:output method="html" indent="yes"/>
 
+    <!-- Main template creates the dashboard layout with agent info and listings -->
     <xsl:template match="/">
         <html xmlns:re="http://www.realestate-platform.com/schema">
             <head>
@@ -90,6 +92,7 @@
         </html>
     </xsl:template>
 
+    <!-- Template for displaying agent profile information -->
     <xsl:template match="agent">
         <h2>Agent Profile</h2>
         <div class="profile">
@@ -144,6 +147,7 @@
         </div>
     </xsl:template>
 
+    <!-- Template for displaying property listings -->
     <xsl:template match="property">
         <div class="listing-card">
             <span>
