@@ -1,0 +1,120 @@
+<html xmlns:re="http://www.realestate-platform.com/schema">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Property Listings</title>
+        <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    .property { border: 1px solid #ccc; margin: 10px; padding: 15px; border-radius: 5px; }
+                    .price { color: #2c5282; font-size: 1.2em; font-weight: bold; }
+                    .features { margin-top: 10px; }
+                    .amenities { color: #4a5568; }
+                    .status { 
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        font-weight: bold;
+                    }
+                    .status-available { background-color: #c6f6d5; color: #2f855a; }
+                    .status-under-contract { background-color: #feebc8; color: #c05621; }
+                    img { 
+                        max-width: 300px; 
+                        margin: 10px 0; 
+                        border: 1px solid #e2e8f0;
+                        border-radius: 5px;
+                    }
+                    .image-container {
+                        position: relative;
+                        display: inline-block;
+                    }
+                    .image-fallback {
+                        width: 300px;
+                        height: 200px;
+                        background-color: #f7fafc;
+                        border: 1px solid #e2e8f0;
+                        border-radius: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #718096;
+                        font-style: italic;
+                    }
+                </style>
+    </head>
+    <body>
+        <h1>Available Properties</h1>
+        <div class="property">
+            <h2>Luxury Waterfront Villa</h2>
+            <div><span class="
+                        status status-available">AVAILABLE</span></div>
+            <p>Stunning 4-bedroom villa with panoramic ocean views</p>
+            <div class="location">
+                <h3>Location</h3>
+                <p>123 Oceanview Drive<br>Miami Beach,
+                    Florida,
+                    33139</p>
+            </div>
+            <div class="details">
+                <h3>Property Details</h3>
+                <ul>
+                    <li>Type: Villa</li>
+                    <li>Bedrooms: 4</li>
+                    <li>Bathrooms: 3.5</li>
+                    <li>Total Area: 450.5 sq ft</li>
+                </ul>
+            </div>
+            <div class="price">
+                $2,500,000</div>
+            <div class="features">
+                <h3>Features</h3>
+                <div class="amenities">
+                    <span style="margin-right: 10px;">• Swimming
+                        Pool</span><span style="margin-right: 10px;">• Ocean
+                        View</span><span style="margin-right: 10px;">• Smart
+                        Home System</span>
+                </div>
+            </div>
+            <div class="images"><div class="image-container">
+                    <img
+                        src="https://haus51.com/wp-content/uploads/2024/01/Waterfront-Villa-img-1.webp"
+                        alt="Luxury Waterfront Villa - Front View" onerror="
+                                this.style.display='none';
+                                this.nextElementSibling.style.display='flex';
+                            "><div class="image-fallback"
+                        style="display: none;"><span>Image not
+                            available</span></div>
+                </div></div>
+        </div>
+        <div class="property">
+            <h2>Modern Downtown Apartment</h2>
+            <div><span class="
+                        status status-available">AVAILABLE</span></div>
+            <p>Luxurious 2-bedroom apartment in the heart of downtown</p>
+            <div class="location">
+                <h3>Location</h3>
+                <p>456 City Center Ave<br>Miami,
+                    Florida,
+                    33130</p>
+            </div>
+            <div class="details">
+                <h3>Property Details</h3>
+                <ul>
+                    <li>Type: Apartment</li>
+                    <li>Bedrooms: 2</li>
+                    <li>Bathrooms: 2.0</li>
+                    <li>Total Area: 120.0 sq ft</li>
+                </ul>
+            </div>
+            <div class="price">
+                $3,500 per month
+            </div>
+            <div class="features">
+                <h3>Features</h3>
+                <div class="amenities">
+                    <span style="margin-right: 10px;">• Gym</span><span
+                        style="margin-right: 10px;">• Pool</span><span
+                        style="margin-right: 10px;">• Concierge</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

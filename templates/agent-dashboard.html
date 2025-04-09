@@ -1,0 +1,124 @@
+<html xmlns:re="http://www.realestate-platform.com/schema">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Agent Dashboard</title>
+        <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    .dashboard { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+                    .agent-info { 
+                        background: #f7fafc; 
+                        padding: 20px; 
+                        border-radius: 5px;
+                        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    }
+                    .listings { background: #fff; padding: 20px; }
+                    .listing-card { 
+                        border: 1px solid #e2e8f0; 
+                        margin: 10px 0; 
+                        padding: 15px; 
+                        border-radius: 5px;
+                        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+                    }
+                    .status-badge {
+                        display: inline-block;
+                        padding: 3px 8px;
+                        border-radius: 3px;
+                        font-size: 0.8em;
+                        font-weight: bold;
+                    }
+                    .status-available { background-color: #c6f6d5; color: #2f855a; }
+                    .status-under-contract { background-color: #feebc8; color: #c05621; }
+                    .metrics { 
+                        display: grid; 
+                        grid-template-columns: repeat(3, 1fr); 
+                        gap: 10px; 
+                        margin-top: 20px; 
+                    }
+                    .metric-card {
+                        background: #fff;
+                        padding: 15px;
+                        border-radius: 5px;
+                        text-align: center;
+                        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    }
+                    .metric-value {
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        color: #2c5282;
+                    }
+                    .profile h3 {
+                        color: #2d3748;
+                        margin-bottom: 1em;
+                    }
+                    .profile p {
+                        color: #4a5568;
+                        margin: 0.5em 0;
+                    }
+                    .specializations {
+                        margin: 1em 0;
+                    }
+                    .specializations li {
+                        color: #4a5568;
+                        margin: 0.3em 0;
+                    }
+                    .license-info {
+                        background: #fff;
+                        padding: 10px;
+                        border-radius: 4px;
+                        margin: 0.5em 0;
+                    }
+                </style>
+    </head>
+    <body><div class="dashboard">
+            <div class="agent-info">
+                <h2>Agent Profile</h2>
+                <div class="profile">
+                    <h3>JohnSmith</h3>
+                    <p>ID: AGT001</p>
+                    <p>Email: john.smith@luxuryregroup.com</p>
+                    <p>Phone: 305-555-0124</p>
+                    <h4>Specializations</h4>
+                    <ul class="specializations">
+                        <li>Luxury Properties</li>
+                        <li>Waterfront Homes</li>
+                    </ul>
+                    <h4>Licenses</h4>
+                    <div class="license-info"><p><strong>Real Estate
+                                Broker</strong><br>
+                            License #: FL123456<br>
+                            Expires: 2024-12-31</p></div>
+                    <div class="metrics">
+                        <div class="metric-card">
+                            <h4>Active Listings</h4>
+                            <div class="metric-value">1</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Total Value</h4>
+                            <div class="metric-value">
+                                $2,500,000</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Avg. Price</h4>
+                            <div class="metric-value">
+                                $2,500,000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="listings">
+                <h2>Active Listings</h2>
+                <div class="listing-card">
+                    <span class="
+                    status-badge status-available">AVAILABLE</span><h3>Luxury
+                        Waterfront Villa</h3>
+                    <p>Stunning 4-bedroom villa with panoramic ocean views</p>
+                    <div class="listing-details"><p>
+                            Price: $2,500,000<br>
+                            Type: Villa<br>
+                            Location: Miami Beach, Florida</p></div>
+                    <div class="listing-stats"><p>
+                            Listed: 2024-01-15</p></div>
+                </div>
+            </div>
+        </div></body>
+</html>

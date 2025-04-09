@@ -1,0 +1,135 @@
+<html xmlns:re="http://www.realestate-platform.com/schema">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Transaction Summary Report</title>
+        <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    .transaction { 
+                        border: 1px solid #e2e8f0; 
+                        margin: 20px 0; 
+                        padding: 20px;
+                        border-radius: 5px;
+                    }
+                    .section { margin: 15px 0; }
+                    .timeline { 
+                        border-left: 2px solid #cbd5e0;
+                        padding-left: 20px;
+                        margin-left: 10px;
+                    }
+                    .timeline-event {
+                        position: relative;
+                        margin-bottom: 15px;
+                    }
+                    .timeline-event:before {
+                        content: '';
+                        width: 10px;
+                        height: 10px;
+                        background: #4299e1;
+                        border-radius: 50%;
+                        position: absolute;
+                        left: -26px;
+                        top: 5px;
+                    }
+                    .status-badge {
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        font-weight: bold;
+                        background: #ebf8ff;
+                        color: #2c5282;
+                    }
+                    .documents { 
+                        background: #f7fafc;
+                        padding: 15px;
+                        border-radius: 5px;
+                    }
+                    .financials {
+                        background: #f0fff4;
+                        padding: 15px;
+                        border-radius: 5px;
+                    }
+                </style>
+    </head>
+    <body>
+        <h1>Transaction Summary Report</h1>
+        <div class="transaction">
+            <h2>Transaction #TR001</h2>
+            <div class="section">
+                <span class="status-badge">IN_PROGRESS</span><p>Type:
+                    PURCHASE</p>
+            </div>
+            <div class="section">
+                <h3>Property Information</h3>
+                <div><p><strong>Luxury Waterfront Villa</strong><br>123
+                        Oceanview Drive<br>Miami Beach,
+                        Florida33139</p></div>
+            </div>
+            <div class="section financials">
+                <h3>Financial Details</h3>
+                <p><strong>Price:</strong> $550,000<br><strong>Payment
+                        Method:</strong>MORTGAGE</p>
+                <div>
+                    <h4>Financing Information</h4>
+                    <p>
+                        Lender: First National Bank<br>
+                        Loan Amount: $440,000<br>
+                        Interest Rate: 6.5%<br>
+                        Term: 360 months
+                    </p>
+                </div>
+                <h4>Fees</h4>
+                <ul>
+                    <li>
+                        <strong>Inspection:</strong>
+                        $450
+                        - Standard home inspection</li>
+                    <li>
+                        <strong>Appraisal:</strong>
+                        $400
+                        - Residential appraisal fee</li>
+                </ul>
+            </div>
+            <div class="section documents">
+                <h3>Documents</h3>
+                <ul>
+                    <li>
+                        <strong>Residential Purchase Agreement</strong>
+                        (Purchase Agreement)<br>
+                        Status: SIGNED<br>
+                        Uploaded: 2024-03-18T14:30:00<br>Signed by: USER001
+                        USER002</li>
+                    <li>
+                        <strong>Home Inspection Report</strong>
+                        (Inspection Report)<br>
+                        Status: COMPLETED<br>
+                        Uploaded: 2024-03-19T16:00:00</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Timeline</h3>
+                <div class="timeline">
+                    <div class="timeline-event">
+                        <strong>OFFER_SUBMITTED</strong><br>
+                        Date: 2024-03-18T10:00:00<br>Initial offer submitted by
+                        buyer<br>
+                        Status: COMPLETED<br>Responsible: USER001</div>
+                    <div class="timeline-event">
+                        <strong>OFFER_ACCEPTED</strong><br>
+                        Date: 2024-03-18T14:30:00<br>Offer accepted by
+                        seller<br>
+                        Status: COMPLETED<br>Responsible: USER002</div>
+                    <div class="timeline-event">
+                        <strong>INSPECTION_SCHEDULED</strong><br>
+                        Date: 2024-03-19T09:00:00<br>Home inspection
+                        scheduled<br>
+                        Status: COMPLETED<br>Responsible: SP001</div>
+                    <div class="timeline-event">
+                        <strong>INSPECTION_COMPLETED</strong><br>
+                        Date: 2024-03-19T16:00:00<br>Home inspection completed
+                        and report uploaded<br>
+                        Status: COMPLETED<br>Responsible: SP001</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

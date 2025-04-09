@@ -45,12 +45,12 @@
             <media>
                 <images>
                     <image isPrimary="true">
-                        <url>https://example.com/images/prop001/main.jpg</url>
+                        <url>https://haus51.com/wp-content/uploads/2024/01/Waterfront-Villa-img-1.webp</url>
                         <caption>Front View</caption>
                         <type>exterior</type>
                     </image>
                     <image isPrimary="false">
-                        <url>https://example.com/images/prop001/kitchen.jpg</url>
+                        <url>https://spacepal-files-prd.s3.amazonaws.com/aa90788b-bf3f-4338-8eac-1029f2f8f41b.webp</url>
                         <caption>Modern Kitchen</caption>
                         <type>interior</type>
                     </image>
