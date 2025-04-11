@@ -5,6 +5,24 @@
                       version="1.0"
                       lastUpdated="2024-03-20T10:00:00">
 
+    <User>
+        <ID>USER001</ID>
+        <Name>John Doe</Name>
+    </User>
+    <User>
+        <ID>USER002</ID>
+        <Name>Jane Smith</Name>
+    </User>
+
+    <Property>
+        <ID>PROP001</ID>
+        <Address>123 Oceanview Drive, Miami Beach, FL</Address>
+    </Property>
+    <Property>
+        <ID>PROP002</ID>
+        <Address>456 City Center Ave, Miami, FL</Address>
+    </Property>
+
     <properties>
         <property listingType="SALE" status="AVAILABLE">
             <propertyId>PROP001</propertyId>
@@ -225,154 +243,21 @@
 
     <serviceProviders>
         <serviceProvider>
-            <providerId>SP001</providerId>
-            <n>Elite Home Inspections</n>
-            <serviceType>Home Inspection</serviceType>
-            <description>Professional home inspection services with detailed reports and thermal imaging</description>
-            <contactInfo>
-                <email>info@eliteinspect.com</email>
-                <phone>555-0123</phone>
-                <preferredContactMethod>email</preferredContactMethod>
-            </contactInfo>
-            <services>
-                <service>
-                    <n>Standard Home Inspection</n>
-                    <description>Comprehensive inspection of all major home systems and structures</description>
-                    <price>450.00</price>
-                    <duration>PT4H</duration>
-                </service>
-                <service>
-                    <n>Thermal Imaging Inspection</n>
-                    <description>Advanced inspection using thermal imaging technology</description>
-                    <price>650.00</price>
-                    <duration>PT5H</duration>
-                </service>
-            </services>
-            <availability>
-                <availableFrom>2024-03-21</availableFrom>
-            </availability>
-            <ratings>
-                <rating ratedBy="AGT001">
-                    <score>4.8</score>
-                    <comment>Very thorough inspection, great communication</comment>
-                    <date>2024-02-15</date>
-                </rating>
-                <rating ratedBy="AGT002">
-                    <score>4.9</score>
-                    <comment>Excellent attention to detail</comment>
-                    <date>2024-03-01</date>
-                </rating>
-            </ratings>
-            <certifications>
-                <certification>
-                    <name>Certified Master Inspector</name>
-                    <issuingBody>InterNACHI</issuingBody>
-                    <issueDate>2022-01-15</issueDate>
-                    <expiryDate>2025-01-15</expiryDate>
-                </certification>
-            </certifications>
+            <Name>Elite Home Inspections</Name>
+            <ServiceType>Home Inspection</ServiceType>
+            <Rating>4.8</Rating>
         </serviceProvider>
-
         <serviceProvider>
-            <providerId>SP002</providerId>
-            <n>Accurate Appraisals LLC</n>
-            <serviceType>Property Appraisal</serviceType>
-            <description>Licensed property appraisal services for residential and commercial properties</description>
-            <contactInfo>
-                <email>info@accurateappraisals.com</email>
-                <phone>555-0124</phone>
-                <preferredContactMethod>phone</preferredContactMethod>
-            </contactInfo>
-            <services>
-                <service>
-                    <n>Residential Appraisal</n>
-                    <description>Complete residential property valuation</description>
-                    <price>400.00</price>
-                    <duration>PT3H</duration>
-                </service>
-                <service>
-                    <n>Commercial Appraisal</n>
-                    <description>Detailed commercial property valuation</description>
-                    <price>800.00</price>
-                    <duration>PT6H</duration>
-                </service>
-            </services>
-            <availability>
-                <availableFrom>2024-03-22</availableFrom>
-            </availability>
-            <ratings>
-                <rating ratedBy="AGT003">
-                    <score>4.7</score>
-                    <comment>Fast and accurate appraisals</comment>
-                    <date>2024-03-10</date>
-                </rating>
-            </ratings>
-            <certifications>
-                <certification>
-                    <name>Certified Residential Appraiser</name>
-                    <issuingBody>State Board of Appraisers</issuingBody>
-                    <issueDate>2021-06-01</issueDate>
-                    <expiryDate>2024-06-01</expiryDate>
-                </certification>
-            </certifications>
+            <Name>Accurate Appraisals LLC</Name>
+            <ServiceType>Property Appraisal</ServiceType>
+            <Rating>4.7</Rating>
         </serviceProvider>
     </serviceProviders>
 
     <transactions>
         <transaction>
-            <transactionId>TR001</transactionId>
-            <propertyId>PROP001</propertyId>
-            <transactionType>PURCHASE</transactionType>
-            <status>IN_PROGRESS</status>
-            <parties>
-                <buyer>USER001</buyer>
-                <seller>USER002</seller>
-                <agent>AGT001</agent>
-                <agency>AG001</agency>
-                <serviceProviders>
-                    <provider>SP001</provider>
-                    <provider>SP002</provider>
-                </serviceProviders>
-            </parties>
-            <financials>
-                <price>550000.00</price>
-                <paymentMethod>MORTGAGE</paymentMethod>
-                <financingDetails>
-                    <lender>First National Bank</lender>
-                    <loanAmount>440000.00</loanAmount>
-                    <interestRate>6.5</interestRate>
-                    <term>360</term>
-                </financingDetails>
-                <fees>
-                    <fee>
-                        <type>Inspection</type>
-                        <amount>450.00</amount>
-                        <description>Standard home inspection</description>
-                    </fee>
-                    <fee>
-                        <type>Appraisal</type>
-                        <amount>400.00</amount>
-                        <description>Residential appraisal fee</description>
-                    </fee>
-                </fees>
-            </financials>
-            <documents>
-                <document>
-                    <type>Purchase Agreement</type>
-                    <title>Residential Purchase Agreement</title>
-                    <url>https://example.com/docs/TR001/purchase-agreement.pdf</url>
-                    <uploadDate>2024-03-18T14:30:00</uploadDate>
-                    <status>SIGNED</status>
-                    <signedBy>USER001 USER002</signedBy>
-                </document>
-                <document>
-                    <type>Inspection Report</type>
-                    <title>Home Inspection Report</title>
-                    <url>https://example.com/docs/TR001/inspection-report.pdf</url>
-                    <uploadDate>2024-03-19T16:00:00</uploadDate>
-                    <status>COMPLETED</status>
-                </document>
-            </documents>
+            <PropertyID>PROP001</PropertyID>
+            <UserID>USER001</UserID>
             <timeline>
                 <event>
                     <date>2024-03-18T10:00:00</date>
@@ -381,24 +266,16 @@
                     <status>COMPLETED</status>
                     <responsibleParty>USER001</responsibleParty>
                 </event>
-                <event>
-                    <date>2024-03-18T14:30:00</date>
-                    <type>OFFER_ACCEPTED</type>
-                    <description>Offer accepted by seller</description>
-                    <status>COMPLETED</status>
-                    <responsibleParty>USER002</responsibleParty>
-                </event>
+            </timeline>
+        </transaction>
+        <transaction>
+            <PropertyID>PROP002</PropertyID>
+            <UserID>USER002</UserID>
+            <timeline>
                 <event>
                     <date>2024-03-19T09:00:00</date>
                     <type>INSPECTION_SCHEDULED</type>
                     <description>Home inspection scheduled</description>
-                    <status>COMPLETED</status>
-                    <responsibleParty>SP001</responsibleParty>
-                </event>
-                <event>
-                    <date>2024-03-19T16:00:00</date>
-                    <type>INSPECTION_COMPLETED</type>
-                    <description>Home inspection completed and report uploaded</description>
                     <status>COMPLETED</status>
                     <responsibleParty>SP001</responsibleParty>
                 </event>

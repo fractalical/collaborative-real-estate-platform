@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Calendar xmlns:re="http://www.realestate-platform.com/schema">
+  <Event>
+    <Title>123 Oceanview Drive, Miami Beach, FL</Title>
+    <Date>2024-03-18T10:00:00</Date>
+    <Visitor>John Doe</Visitor>
+  </Event>
+  <Event>
+    <Title>456 City Center Ave, Miami, FL</Title>
+    <Date>2024-03-19T09:00:00</Date>
+    <Visitor>Jane Smith</Visitor>
+  </Event>
+</Calendar>

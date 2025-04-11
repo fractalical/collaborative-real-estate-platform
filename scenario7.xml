@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- scenario7-json.xsl -->
+<!-- Outputs service provider data in JSON format -->
+
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:re="http://www.realestate-platform.com/schema">
+
+  <!-- Output as plain text -->
+  <xsl:output method="text" encoding="UTF-8" indent="no"/>
+
+  <!-- Start of the transformation -->
+  <xsl:template match="/">
+{
+  "serviceProviders": [
+    <xsl:for-each select="re:realEstatePlatform/serviceProviders/serviceProvider">
+      {
+        "name": "<xsl:value-of select='Name'/>",
+        "serviceType": "<xsl:value-of select='ServiceType'/>",
+        "rating": <xsl:value-of select='Rating'/>
+      }<xsl:if test="position() != last()">,</xsl:if>
+    </xsl:for-each>
+  ]
+}
+  </xsl:template>
+
+</xsl:stylesheet>

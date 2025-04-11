@@ -1,0 +1,17 @@
+
+{
+  "serviceProviders": [
+    
+      {
+        "name": "Elite Home Inspections",
+        "serviceType": "Home Inspection",
+        "rating": 4.8
+      },
+      {
+        "name": "Accurate Appraisals LLC",
+        "serviceType": "Property Appraisal",
+        "rating": 4.7
+      }
+  ]
+}
+  

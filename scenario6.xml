@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- scenario6-transform.xml.xsl -->
+<!-- Transforms bookings into a simplified calendar XML format -->
+
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:re="http://www.realestate-platform.com/schema">
+
+  <!-- Output format is XML -->
+  <xsl:output method="xml" indent="yes"/>
+
+  <!-- Define keys for efficient lookup of users and properties -->
+  <xsl:key name="userById" match="User" use="ID"/>
+  <xsl:key name="propertyById" match="Property" use="ID"/>
+
+  <!-- Match the root of the XML -->
+  <xsl:template match="/">
+    <Calendar>
+      <!-- Loop over all bookings -->
+      <xsl:for-each select="re:realEstatePlatform/transactions/transaction">
+        <Event>
+          <Title>
+            <!-- Get property address from property ID -->
+            <xsl:value-of select="key('propertyById', PropertyID)/Address"/>
+          </Title>
+          <Date>
+            <xsl:value-of select="timeline/event[1]/date"/>
+          </Date>
+          <Visitor>
+            <!-- Get user name from user ID -->
+            <xsl:value-of select="key('userById', UserID)/Name"/>
+          </Visitor>
+        </Event>
+      </xsl:for-each>
+    </Calendar>
+  </xsl:template>
+
+</xsl:stylesheet>
