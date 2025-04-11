@@ -35,6 +35,14 @@ This project is a comprehensive real estate platform designed to manage and disp
      - Generates an HTML report summarizing real estate transactions.
      - Includes transaction details, financials, involved parties, and timeline events.
 
+   - **Scenario 6 (XML→Simplified XML):**
+     - Export Booking records to a calendar-style format for integration.
+
+   - **Scenario 7 (XML→JSON-like):**
+     - Purpose: Export service provider data for front-end or API use.
+
+
+
 ### Purpose:
 
 The project aims to streamline the management and presentation of real estate data, making it accessible and actionable for real estate professionals. By leveraging XML for data storage and XSLT for data transformation, the platform provides a flexible and scalable solution for real estate agencies, agents, and service providers. The use of standardized schemas ensures data integrity, while the XSLT transformations enable dynamic and customizable data presentations.
